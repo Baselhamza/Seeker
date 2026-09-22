@@ -1,0 +1,43 @@
+AmazIEEE
+
+REQUIERMENTS
+fUNCTIONAL REQUIERMENT:
+1.Customers can browse products
+2.create order
+2.add them to a order
+3.confirm order and payment
+3.Customers can track their order status
+4.Customer Notifications about the status of the status
+5.The system receives orders.
+6. The system checks that every item is available and reserves it. 
+7.The system decides how many robots are needed to collect it.
+8.The system sends pick tasks to the assigned robots and follows their progress.
+9.Packing & Handoff: When all robots assigned to an order have finished, the system knows the order is fully collected, 
+and it moves the order to the packing station and then to shipping.
+10.The system notifies operators about important events.
+---------OUT OF SCOPE-------
+1.CHOOSE THE TYPE OF THE SERVICE(AmazIEEE PRIME,AmazIEEE GOLD)
+
+----------------------------------------------------------
+nonfunctional:
+-Consistency for making orders same order is never processed twice &
+two orders can never claim the same last unit.
+-Availability for users
+-system must handle high throughput while high traffic events
+-Observability for robots failures    
+-law Latency for order searching 
+---------OUT OF SCOPE-------
+1.SECURITY OF THE USERS DATA AND PAYMENT METHODES
+2.Reliability
+3.Durability
+
+----------------------------------------------------------
+DATA MODEL
+1.customers
+2.order
+3.product
+4.products in oder
+5.robot
+6.operator
+more details are mentioned in the HDL
+----------------------------------------------------------
