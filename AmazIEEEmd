@@ -41,3 +41,90 @@ DATA MODEL
 6.operator
 more details are mentioned in the HDL
 ----------------------------------------------------------
+API
+(request is in {} and the response is beside the endpoint after ------->)
+//searching
+
+GET/API/V2/SEARCH/PRODUCTS?(BASED ON SOME DATA)------>PRODUCT[]
+
+//CREAT ORDER
+
+POST/API/V2/ORDERS----->ORDER ID
+{
+PRODUCT ID
+PRODUCT QUANTITY
+}
+
+//ADD TO order
+
+PATCH/API/ORDERS
+{
+PRODUCT ID
+PRODUCT QUANTITY
+}
+
+//CONFIRM AND PAYMAMET
+
+PUT/API/ORDERS/CONFIRM
+{
+order id
+payment detail(strip)
+}
+
+//tracking order status
+
+GET/API/V2/ORDERS/ORDERID?STATUS
+
+//system recieve  based on their id
+
+GET/API/V2/ORDERS?orderid
+
+//system check the status of the products
+
+GET/API/V2/ORDERS/products list[]
+/PRODUCT/STATUS------>available| out of stock| low stock
+
+// how many robots are needed to collect it.
+
+PATCH/API/V2/ORDERS/------>NUMBER OF ROBOTS
+{
+number of products
+location
+sizes 
+weights
+the robots' current availability 
+battery level of robots
+}
+
+//The system sends pick tasks to the assigned robots and follows their progress
+PATCH/API/V2/ROBOTS-------->STATUS
+{
+TASKS
+}
+
+//When all robots assigned to an order have finished, the system knows the order is fully collected, 
+and it moves the order to the packing station and then to shipping.(THIS PROCESS WILL HAS A 3  PHASES ONE TO GET
+THE ROBOTS THAT FINISHED THIER TASKS AND THE 2ND TO CHANGE THE STATUS OF THE ORDER TO PACKING THEN SHIPPING)
+
+GET/API/V2/ROBOTS?STATUS=FINISHED----->ROBOTS ID
+
+PATCH/API/V2/ROBOTSID/ORDERSID/STATUSPACKING------>200
+
+PATCH/API/V2/ROBOTSID/ORDERSID/STATUSSHIPPING------>200
+
+----------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
