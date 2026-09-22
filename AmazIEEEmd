@@ -38,8 +38,64 @@ DATA MODEL
 3.product
 4.products in oder
 5.robot
-6.operator
-more details are mentioned in the HDL
+6.task
+7.relatedorder
+
+more details :
+
+customer:
+id
+location
+name
+relatedorderid list[]
+paymentdetails
+
+
+ORDER:
+-id
+-product in order list[]
+-total quantity of products
+-status: (Received → Confirmed → Picking → Collected
+ → Packed → Ready for Shipping, or Cancelled / Failed
+-total price)
+-number of robots assigned to collect it
+-timestampe
+-metadata...
+
+PRODUCT:
+-id
+-name
+-price
+-timestampe
+-metadata
+......
+
+PRODUCT IN ORDER
+ -product id 
+-order id 
+-quantity
+
+ROBOTS
+-id
+-battery condition
+- location
+-assigned order
+-assigned task id
+-status :available| busy | broke.....
+
+task
+-id
+-assignedrobot id
+-description
+
+
+relatedorder 
+{
+currentorder status (Placed → Confirmed → Picking → Packed → Shipped 
+→ Out for Delivery → Delivered).
+orderi id
+}
+
 ----------------------------------------------------------
 API
 (request is in {} and the response is beside the endpoint after ------->)
